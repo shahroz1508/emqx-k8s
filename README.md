@@ -1,1 +1,5 @@
-# emqx-k8s
+- `deployment.yml` → Defines the EMQX Deployment (pods, replicas, containers).
+- `service.yml` → Exposes EMQX using a Kubernetes Service.
+- `pvc.yml` → Defines the PersistentVolumeClaim for data storage.
+- `nginx/` →  Contains nginx reverse proxying and optimize connection handling for high-throughput MQTT traffic.
+- `README.md` → Documentation for this repo.
