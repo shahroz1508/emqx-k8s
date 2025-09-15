@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: emqx-deployment
+spec:
+  replicas: 1  # Adjust as needed
+  selector:
+    matchLabels:
+      app: emqx
+  template:
+    metadata:
+      labels:
+        app: emqx
+    spec:
+      containers:
+        - name: emqx
+          image: ------         # Use the appropriate EMQ X image
+          volumeMounts:
+            - name: emqx-data
+              mountPath: /mnt/data
+      volumes:
+        - name: emqx-data
+          persistentVolumeClaim:
+            claimName: emqx
+      nodeSelector:
+        emqx: "true"
+
